@@ -1,0 +1,155 @@
+"*":
+  Zen:
+    gutter: true
+    showWordCount: "Left"
+    softWrap: true
+    tabs: "multiple"
+  achievements: {}
+  "atom-beautify":
+    _analyticsUserId: "b8290516-d866-4239-91c8-c37c8d6972da"
+  "atom-material-ui":
+    altCmdPalette: true
+    depth: true
+    disableAnimations: true
+    panelContrast: true
+    slimScrollbar: true
+  "autocomplete-elixir":
+    elixirPath: "/usr/local/bin/elixir"
+    erlangHome: "/usr/local/bin"
+  "autocomplete-haskell":
+    useBackend: "haskell-ghc-mod"
+  "autocomplete-plus": {}
+  "base16-syntax":
+    scheme: "Flat"
+  "bracket-matcher": {}
+  "circle-ci": {}
+  core:
+    disabledPackages: [
+      "achievements"
+      "incremental-search"
+      "minimap"
+      "linter-jsxhint"
+      "linter-less"
+      "atom-elixir"
+      "linter-write-good"
+      "build-elixir"
+      "autocomplete-elixir"
+      "linter-eslint"
+    ]
+    packagesWithKeymapsDisabled: [
+      "dash"
+      "atom-elixir"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "solarized-dark-syntax"
+    ]
+  editor:
+    fontFamily: "\"IBM Plex Mono\""
+    invisibles: {}
+    scrollPastEnd: true
+    showIndentGuide: true
+    showLineNumbers: false
+  "exception-reporting":
+    userId: "e61f6830-23ef-e75c-9b6a-0332363e4385"
+  "find-and-replace":
+    scrollToResultOnLiveSearch: true
+  "flex-tool-bar": {}
+  fonts:
+    fontFamily: "FiraCode"
+  "fuzzy-finder": {}
+  "git-log": {}
+  "go-plus":
+    goPath: "~/Development/Gocode"
+    lintOnSave: false
+  "haskell-ghc-mod":
+    debug: true
+    onChangeLint: true
+  "ide-haskell": {}
+  "ide-haskell-repl": {}
+  "imdone-atom":
+    openIn: {}
+    todaysJournal:
+      directory: "/Users/keathley/Dropbox/Journal"
+  "isotope-ui":
+    fontFamily: "Roboto"
+    minimalMode: true
+  "language-babel":
+    transpileOnSave: false
+  "latex-completions": {}
+  "less-than-slash": {}
+  linter:
+    lintOnChange: false
+    lintOnEditorFocus: false
+  "linter-eslint":
+    eslintRulesDirs: [
+      "~/"
+    ]
+    globalNodePath: "/usr/local"
+  "linter-jshint": {}
+  "linter-jsxhint":
+    harmony: true
+  "linter-rubocop": {}
+  "linter-rust": {}
+  "linter-scss-lint": {}
+  "linter-ui-default":
+    panelHeight: 245
+    showStatusBar: false
+  "markdown-preview":
+    useGitHubStyle: true
+  "markdown-writer": {}
+  "merge-conflicts": {}
+  minimap:
+    plugins:
+      bookmarks: true
+      "git-diff": true
+  "one-dark-ui": {}
+  "one-light-ui": {}
+  pigments:
+    sortPaletteColors: "by color"
+  racer:
+    racerBinPath: "/Users/keathley/.cargo/bin/racer"
+    rustSrcPath: "/Users/keathley/Development/rust/src"
+  "rails-rspec": {}
+  react: {}
+  "relative-line-numbers":
+    showNormalLineNumbers: false
+  rspec:
+    command: "bundle exec bin/rspec"
+  "ruby-test":
+    cucumberAllCommand: "bundle exec cucumber features"
+    rspecAllCommand: "source ~/.zshrc && bundle exec bin/rspec spec"
+    rspecFileCommand: "source ~/.zshrc && bundle exec bin/rspec --tty {relative_path}"
+    rspecSingleCommand: "source ~/.zshrc && bundle exec bin/rspec --tty {relative_path}:{line_number}"
+    shell: "/usr/local/bin/zsh"
+    specFramework: "rspec"
+    testAllCommand: "bundle exec rake"
+  "seti-syntax":
+    themeColor: "Red"
+  tabs: {}
+  tasks: {}
+  "tool-bar":
+    position: "Left"
+    visible: false
+  "tree-view":
+    hideIgnoredNames: true
+  "vim-mode": {}
+  "vim-mode-plus":
+    highlightSearch: true
+    incrementalSearch: true
+  "vim-mode-plus-ex-mode":
+    notifiedUseExMode: true
+  "vim-surround": {}
+  welcome:
+    showOnStartup: false
+  wordcount:
+    extensions: [
+      "md"
+    ]
+".go.source":
+  editor:
+    tabLength: 8
+".js.jsx.source":
+  editor:
+    autoIndent: true
