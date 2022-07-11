@@ -1,13 +1,1 @@
-atom/.apm
-atom/.node-gyp
-atom/.storage
-atom/compile-cache/
-atom/packages
-atom/storage
-atom/themes
-atom/blob-store
-lists/*.todo
-
-config/fish/functions/private
-
 .DS_Store

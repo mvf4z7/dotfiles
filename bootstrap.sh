@@ -7,8 +7,7 @@
 
 set -e
 
-dir=~/dotfiles
-olddir=~/dotfiles_old
+dir=~/Code/dotfiles
 
 fancy_echo() {
   local fmt="$1"; shift
@@ -33,18 +32,24 @@ if ! command -v brew >/dev/null; then
   brew tap homebrew/bundle
 fi
 
-if ! command -v git >/dev/null; then
-  brew install git
-fi
+fancy_echo "Updating Homebrew..."
+brew update
+brew bundle --file=$HOME/dotfiles/Brewfile
 
-if [ ! -d "$HOME/.asdf" ]; then
-  fancy_echo "Installing asdf..."
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-fi
+# Shouldn't be needed, installed via Homebrew
+# if ! command -v git >/dev/null; then
+#   brew install git
+# fi
+
+# Shouldn't be needed, installed via Homebrew
+# if [ ! -d "$HOME/.asdf" ]; then
+#   fancy_echo "Installing asdf..."
+#   git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+# fi
 
 if [ ! -d "$dir" ]; then
   fancy_echo "Cloning dotfiles..."
-  git clone git://github.com/keathley/dotfiles.git ~/dotfiles
+  git clone git://github.com/mvf4z7/dotfiles.git ~/dotfiles
 fi
 
 if [ ! -d "$HOME/bin" ]; then
@@ -52,19 +57,22 @@ if [ ! -d "$HOME/bin" ]; then
   mkdir ~/bin
 fi
 
-if [ ! -d "$HOME/go" ]; then
-  fancy_echo "Creating go directory..."
-  mkdir ~/go
-fi
-
-fancy_echo "Updating Homebrew..."
-brew update
-brew bundle --file=$HOME/dotfiles/Brewfile
-
 fancy_echo "Linking dotfiles..."
-env RCRC=$HOME/dotfiles/rcrc rcup
+env RCRC=$dir/rcrc rcup
 
 . $HOME/.asdf/asdf.sh
+
+if ! asdf plugin-list | grep nodejs > /dev/null
+then
+  fancy_echo "Installing nodejs asdf plugin..."
+  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+fi
+
+if ! asdf plugin-list | grep golang > /dev/null
+then
+  fancy_echo "Installing golang asdf plugin..."
+  asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
+fi
 
 if ! asdf plugin-list | grep elixir > /dev/null
 then
@@ -78,11 +86,11 @@ then
     asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
 fi
 
-if ! asdf plugin-list | grep ruby > /dev/null
-then
-  fancy_echo "Installing ruby asdf plugin..."
-  asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
-fi
+# if ! asdf plugin-list | grep ruby > /dev/null
+# then
+#   fancy_echo "Installing ruby asdf plugin..."
+#   asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
+# fi
 
 if ! command -v rustup > /dev/null
 then
@@ -96,18 +104,23 @@ fi
 #   createuser -s postgres
 # fi
 
-if grep -Fxq "/usr/local/bin/fish" /etc/shells
-then
-    fancy_echo "Already set up fish shell"
-else
-    fancy_echo "Adding fish to shell list"
-    echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+# if grep -Fxq "/usr/local/bin/fish" /etc/shells
+# then
+#     fancy_echo "Already set up fish shell"
+# else
+#     fancy_echo "Adding fish to shell list"
+#     echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+# fi
+
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  fancy_echo "Installing oh-my-zsh..."
+  sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 fi
 
 case "$SHELL" in
-  */fish) : ;;
+  */zsh) : ;;
   *)
-    fancy_echo "Changing your shell to fish..."
-      chsh -s "$(which fish)"
+    fancy_echo "Changing your shell to zsh..."
+      chsh -s "$(which zsh)"
     ;;
 esac

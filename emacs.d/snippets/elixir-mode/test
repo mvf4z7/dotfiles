@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: test
-# key: test
-# --
-test "${0:description}" do
-  $1
-end

@@ -4,8 +4,7 @@
   templatedir = ~/.git_template
 	defaultBranch = main
 [core]
-  editor = ~/.asdf/shims/nvim
-  ; editor = /usr/local/bin/nvim
+  editor = /usr/local/bin/code
   pager = diff-so-fancy | less --tabs=4 -RFX
 	attributesfile = ~/.gitattributes
 [alias]
@@ -61,8 +60,8 @@
   log  = diff-highlight | less
   diff = diff-so-fancy | less --tabs=4 -RFX
   show = diff-so-fancy | less --tabs=4 -RFX
-; [interactive]
-;   diffFilter = "diff-so-fancy"
+[interactive]
+  diffFilter = "diff-so-fancy"
 [color "diff-highlight"]
   oldNormal = red bold
   oldHighlight = red bold 52
