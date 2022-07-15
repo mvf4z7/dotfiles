@@ -4,7 +4,7 @@
   templatedir = ~/.git_template
 	defaultBranch = main
 [core]
-  editor = /usr/local/bin/code
+  editor = /usr/local/bin/code -r -w
   pager = diff-so-fancy | less --tabs=4 -RFX
 	attributesfile = ~/.gitattributes
 [alias]
