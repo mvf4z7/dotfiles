@@ -98,20 +98,6 @@ then
   curl https://sh.rustup.rs -sSf | sh
 fi
 
-# if [[ ! $(psql -U postgres -c '\du' | grep 'postgres') ]]
-# then
-#   fancy_echo "Setting up postgres"
-#   createuser -s postgres
-# fi
-
-# if grep -Fxq "/usr/local/bin/fish" /etc/shells
-# then
-#     fancy_echo "Already set up fish shell"
-# else
-#     fancy_echo "Adding fish to shell list"
-#     echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-# fi
-
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   fancy_echo "Installing oh-my-zsh..."
   sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
