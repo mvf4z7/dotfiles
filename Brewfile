@@ -1,6 +1,7 @@
 cask_args appdir: '/Applications'
 
 tap 'caskroom/cask'
+tap 'homebrew/cask-fonts'
 tap 'homebrew/bundle'
 tap 'thoughtbot/formulae'
 
@@ -19,6 +20,7 @@ brew 'asdf'
 
 cask 'visual-studio-code'
 cask 'docker'
+cask 'font-fira-code'
 cask 'gpg-suite'
 cask 'iterm2'
 cask 'ngrok'
