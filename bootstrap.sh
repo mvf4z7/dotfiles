@@ -47,7 +47,7 @@ fi
 
 if [ ! -d "$dir" ]; then
   fancy_echo "Cloning dotfiles..."
-  git clone git://github.com/mvf4z7/dotfiles.git "$dir"
+  git clone https://github.com/mvf4z7/dotfiles.git "$dir"
 fi
 
 fancy_echo "Installing items in Brewfile"
