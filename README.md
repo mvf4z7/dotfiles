@@ -1,4 +1,4 @@
-# Chris Keathley's Dotfiles
+# Mike Fanger's Dotfiles
 
 I :heart: dotfiles.
 
@@ -30,6 +30,10 @@ there is a missing dependency. If you want to set up your mac with the same
 defaults that I do you can also run `./set-defaults.sh`. If you need to add 
 new dotfiles or symlinks in the future then you can simply run `rcup` in the 
 dotfiles dir.
+
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/mvf4z7/dotfiles/main/bootstrap.sh)"
+```
 
 ## Thanks
 
