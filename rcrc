@@ -1,2 +1,2 @@
 EXCLUDES="README.md bootstrap.sh set-defaults.sh Brewfile"
-DOTFILES_DIRS="$HOME/dotfiles"
+DOTFILES_DIRS="$HOME/Code/dotfiles"

@@ -7,7 +7,7 @@
 
 set -e
 
-dir=~/Code/dotfiles
+dir=$HOME/Code/dotfiles
 
 fancy_echo() {
   local fmt="$1"; shift
@@ -23,6 +23,11 @@ install_latest() {
   fi
 }
 
+if [ ! d "$HOME/Code"]; then
+  fancy_echo "Creating $HOME/Code directory..."
+  mkdir "$HOME/Code"
+fi
+
 # fancy_echo "Setting MacOs defaults..."
 # source ~/dotfiles/set-defaults.sh
 
@@ -34,23 +39,19 @@ fi
 
 fancy_echo "Updating Homebrew..."
 brew update
-brew bundle --file=$HOME/dotfiles/Brewfile
 
-# Shouldn't be needed, installed via Homebrew
-# if ! command -v git >/dev/null; then
-#   brew install git
-# fi
 
-# Shouldn't be needed, installed via Homebrew
-# if [ ! -d "$HOME/.asdf" ]; then
-#   fancy_echo "Installing asdf..."
-#   git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-# fi
+if ! command -v git >/dev/null; then
+  brew install git
+fi
 
 if [ ! -d "$dir" ]; then
   fancy_echo "Cloning dotfiles..."
-  git clone git://github.com/mvf4z7/dotfiles.git ~/dotfiles
+  git clone git://github.com/mvf4z7/dotfiles.git "$dir"
 fi
+
+fancy_echo "Installing items in Brewfile"
+brew bundle --file="$dir/Brewfile"
 
 if [ ! -d "$HOME/bin" ]; then
   fancy_echo "Creating bin directory..."
@@ -85,12 +86,6 @@ then
     fancy_echo "Installing erlang asdf plugin..."
     asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
 fi
-
-# if ! asdf plugin-list | grep ruby > /dev/null
-# then
-#   fancy_echo "Installing ruby asdf plugin..."
-#   asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
-# fi
 
 if ! command -v rustup > /dev/null
 then
