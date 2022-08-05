@@ -23,7 +23,7 @@ install_latest() {
   fi
 }
 
-if [ ! d "$HOME/Code"]; then
+if [ ! d "$HOME/Code" ]; then
   fancy_echo "Creating $HOME/Code directory..."
   mkdir "$HOME/Code"
 fi
