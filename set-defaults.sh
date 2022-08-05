@@ -35,7 +35,6 @@ defaults write com.apple.Safari SuppressSearchSuggestions -bool true
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 
-
 # Activity Monitor
 
 # Show the main window when launching Activity Monitor
