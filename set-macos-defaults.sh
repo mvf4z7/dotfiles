@@ -3,18 +3,22 @@
 # Ask for permissions
 sudo -v
 
-
-# Disable press-and-hold for keys in favor of key repeat.
+# Disable press-and-hold for keys in favor of key repeat
 defaults write -g ApplePressAndHoldEnabled -bool false
 
-# Open Finders in list view.
-defaults write com.apple.Finder FXPreferredViewStyle Nlsv
+# Open Finders in list view
+defaults write com.apple.Finder FXPreferredViewStyle -string "Nlsv"
 
-# Show the ~/Library folder.
+# Show the ~/Library folder
+if xattr ~/Library | grep -q 'com.apple.FinderInfo'; then
+  xattr -d com.apple.FinderInfo ~/Library
+fi
 chflags nohidden ~/Library
 
-# Hella fast key repeat.
-defaults write NSGlobalDomain KeyRepeat -int 0
+
+# Set fast key repeat with short initial delay
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -46,21 +50,7 @@ defaults write com.apple.ActivityMonitor IconType -int 5
 # Show all processes in Activity Monitor
 defaults write com.apple.ActivityMonitor ShowCategory -int 0
 
-# Sets columns for all tabs
-# defaults read com.apple.ActivityMonitor "UserColumnsPerTab v5.0" -dict \
-#   '0' '( Command, CPUUsage, CPUTime, Threads, PID, UID, Ports )' \
-#   '1' '( Command, ResidentSize, Threads, Ports, PID, UID,  )' \
-#   '2' '( Command, PowerScore, 12HRPower, AppSleep, UID, powerAssertion )' \
-#   '3' '( Command, bytesWritten, bytesRead, Architecture, PID, UID, CPUUsage )' \
-#   '4' '( Command, txBytes, rxBytes, PID, UID, txPackets, rxPackets, CPUUsage )'
-
-# Set sort column
-# defaults write com.apple.ActivityMonitor UserColumnSortPerTab -dict \
-#   '0' '{ direction = 0; sort = CPUUsage; }' \
-#   '1' '{ direction = 0; sort = ResidentSize; }' \
-#   '2' '{ direction = 0; sort = 12HRPower; }' \
-#   '3' '{ direction = 0; sort = bytesWritten; }' \
-#   '4' '{ direction = 0; sort = rxBytes; }'
+# Set sort direction to descending
 defaults write com.apple.ActivityMonitor SortDirection -int 0
 
 # Show Data in the Disk graph (instead of IO)
