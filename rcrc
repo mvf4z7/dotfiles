@@ -1,2 +1,2 @@
-EXCLUDES="README.md bootstrap.sh set-defaults.sh Brewfile"
+EXCLUDES="README.md bootstrap.sh set-macos-defaults.sh Brewfile Brewfile.lock.json"
 DOTFILES_DIRS="$HOME/Code/dotfiles"
