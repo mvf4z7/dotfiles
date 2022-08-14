@@ -11,7 +11,7 @@ since that's what I use. All of the dotfile management is done with
 ## Whats in it?
 
 All of the things that I use on a daily basis. Most of it is based on the
-highly opinionated way that I work. Most of the fun stuff is in [bin](https://github.com/mvf4z7/dotfiles/tree/master/bin).
+highly opinionated way that I work. Most of the fun stuff is in [bin](https://github.com/mvf4z7/dotfiles/tree/main/bin).
 
 Other highlights include:
 
