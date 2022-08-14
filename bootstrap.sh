@@ -56,11 +56,6 @@ fancy_echo "Installing dependencies in Brewfile"
 # and prevents the program from exiting.
 brew bundle --file="$dir/Brewfile" || :
 
-if [ ! -d "$HOME/bin" ]; then
-  fancy_echo "Creating bin directory..."
-  mkdir ~/bin
-fi
-
 fancy_echo "Linking dotfiles..."
 env RCRC=$dir/rcrc rcup
 
