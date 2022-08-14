@@ -23,13 +23,13 @@ install_latest() {
   fi
 }
 
-if [ ! d "$HOME/Code" ]; then
+if [ ! -d "$HOME/Code" ]; then
   fancy_echo "Creating $HOME/Code directory..."
   mkdir "$HOME/Code"
 fi
 
-# fancy_echo "Setting MacOs defaults..."
-# source ~/dotfiles/set-defaults.sh
+fancy_echo "Setting MacOs defaults..."
+source $dir/set-macos-defaults.sh
 
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Homebrew..."
@@ -50,8 +50,11 @@ if [ ! -d "$dir" ]; then
   git clone https://github.com/mvf4z7/dotfiles.git "$dir"
 fi
 
-fancy_echo "Installing items in Brewfile"
-brew bundle --file="$dir/Brewfile"
+fancy_echo "Installing dependencies in Brewfile"
+# brew bundle causes the script to exit if it fails to install any of the
+# dependencies listed in the Brewfile. Piping to : results in a zero status code
+# and prevents the program from exiting.
+brew bundle --file="$dir/Brewfile" || :
 
 if [ ! -d "$HOME/bin" ]; then
   fancy_echo "Creating bin directory..."
@@ -60,8 +63,6 @@ fi
 
 fancy_echo "Linking dotfiles..."
 env RCRC=$dir/rcrc rcup
-
-. $HOME/.asdf/asdf.sh
 
 if ! asdf plugin-list | grep nodejs > /dev/null
 then
