@@ -1,7 +1,5 @@
 # Mike Fanger's Dotfiles
 
-I :heart: dotfiles.
-
 ## About
 
 Dotfiles are what power your system. These are mine. They're mostly for OS X
