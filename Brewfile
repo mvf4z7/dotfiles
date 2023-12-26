@@ -17,6 +17,7 @@ brew 'rcm'
 brew 'tmux'
 brew 'wget'
 brew 'asdf'
+brew 'pinentry-mac'
 
 cask 'visual-studio-code'
 cask 'docker'

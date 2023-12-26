@@ -72,3 +72,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[user]
+  name = "Michael Fanger"
+	email = mvf4z7@users.noreply.github.com
+  signingKey = <enter-gpg-key-id-here>

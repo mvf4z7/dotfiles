@@ -38,8 +38,10 @@ defaults write com.apple.Safari SuppressSearchSuggestions -bool true
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
+# Don't store GPG pin in keychain
+defaults write org.gpgtools.common UseKeychain -bool false
 
-# Activity Monitor
+######### Activity Monitor #########
 
 # Show the main window when launching Activity Monitor
 defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
