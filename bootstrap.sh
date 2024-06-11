@@ -30,7 +30,7 @@ fi
 
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Homebrew..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew tap homebrew/bundle
 fi
 
