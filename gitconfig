@@ -51,7 +51,7 @@
   untracked = cyan
 [commit]
   template = ~/.gitmessage
-	gpgsign = true
+	gpgsign = false
 [diff]
   compactionHeuristic = true
 [rebase]
@@ -75,4 +75,3 @@
 [user]
   name = "Michael Fanger"
 	email = mvf4z7@users.noreply.github.com
-  signingKey = <enter-gpg-key-id-here>

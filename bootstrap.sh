@@ -16,12 +16,12 @@ fancy_echo() {
   printf "\n$fmt\n" "$@"
 }
 
-install_latest() {
-  if [ ! -d "~/.asdf/installs/$1" ]; then
-    fancy_echo "Installing $1..."
-    asdf list-all $1 | tail -1 | xargs asdf install $1
-  fi
-}
+# install_latest() {
+#   if [ ! -d "~/.asdf/installs/$1" ]; then
+#     fancy_echo "Installing $1..."
+#     asdf list-all $1 | tail -1 | xargs asdf install $1
+#   fi
+# }
 
 if [ ! -d "$HOME/Code" ]; then
   fancy_echo "Creating $HOME/Code directory..."
@@ -52,28 +52,25 @@ fancy_echo "Installing dependencies in Brewfile"
 # and prevents the program from exiting.
 brew bundle --file="$dir/Brewfile" || :
 
-fancy_echo "Linking dotfiles..."
-env RCRC=$dir/rcrc rcup
+# if ! asdf plugin-list | grep nodejs >/dev/null; then
+#   fancy_echo "Installing nodejs asdf plugin..."
+#   asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+# fi
 
-if ! asdf plugin-list | grep nodejs >/dev/null; then
-  fancy_echo "Installing nodejs asdf plugin..."
-  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-fi
+# if ! asdf plugin-list | grep golang >/dev/null; then
+#   fancy_echo "Installing golang asdf plugin..."
+#   asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
+# fi
 
-if ! asdf plugin-list | grep golang >/dev/null; then
-  fancy_echo "Installing golang asdf plugin..."
-  asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
-fi
+# if ! asdf plugin-list | grep elixir >/dev/null; then
+#   fancy_echo "Installing elixir asdf plugin..."
+#   asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
+# fi
 
-if ! asdf plugin-list | grep elixir >/dev/null; then
-  fancy_echo "Installing elixir asdf plugin..."
-  asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
-fi
-
-if ! asdf plugin-list | grep erlang >/dev/null; then
-  fancy_echo "Installing erlang asdf plugin..."
-  asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
-fi
+# if ! asdf plugin-list | grep erlang >/dev/null; then
+#   fancy_echo "Installing erlang asdf plugin..."
+#   asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
+# fi
 
 if ! command -v rustup >/dev/null; then
   fancy_echo "Installing rustup..."
@@ -92,6 +89,9 @@ case "$SHELL" in
   chsh -s "$(which zsh)"
   ;;
 esac
+
+fancy_echo "Linking dotfiles..."
+env RCRC=$dir/rcrc rcup
 
 fancy_echo "Setting MacOs defaults..."
 source $dir/set-macos-defaults.sh
