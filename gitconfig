@@ -4,7 +4,7 @@
   templatedir = ~/.git_template
 	defaultBranch = main
 [core]
-  editor = /usr/local/bin/code -r -w
+  editor = /opt/homebrew/bin/code --reuse-window --wait
   pager = diff-so-fancy | less --tabs=4 -RFX
 	attributesfile = ~/.gitattributes
 [alias]
@@ -51,9 +51,13 @@
   untracked = cyan
 [commit]
   template = ~/.gitmessage
-	gpgsign = false
+	gpgsign = true
 [diff]
   compactionHeuristic = true
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [rebase]
   autosquash = true
 [pager]
@@ -75,3 +79,4 @@
 [user]
   name = "Michael Fanger"
 	email = mvf4z7@users.noreply.github.com
+  signingkey = <add-ssh-public-key>
