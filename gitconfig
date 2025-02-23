@@ -79,4 +79,4 @@
 [user]
   name = "Michael Fanger"
 	email = mvf4z7@users.noreply.github.com
-  signingkey = <add-ssh-public-key>
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMNUvM1a9CjWo2HrzTnjwocGb/1X8IR/VcQrK71IGXvg
